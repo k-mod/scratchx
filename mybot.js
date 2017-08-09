@@ -9,7 +9,7 @@
     };
 
     ext.set_lcd = function(t) {
-	    /*
+	   
         $.ajax({
               type:'POST',
               url: 'http://192.168.1.74:8000/macros/lcd_display/' + t,
@@ -21,7 +21,7 @@
 	    	    alert (err); 
 	          }
         });
-	*/
+	
     };
 
     // Block and block menu descriptions
