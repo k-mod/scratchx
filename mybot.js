@@ -1,4 +1,4 @@
-(function(ext) {
+#(function(ext) {
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -12,6 +12,13 @@
         $.ajax({
               type:'POST',
               url: 'http://webiopi:raspberry@192.168.1.74:8000/macros/lcd_display/' + t,
+              data: { },
+              headers: {
+	    	    'Authorization': "Basic " + btoa("webiopi:raspberry")
+	          },
+	          error: function(err) { 
+	    	    alert (err); 
+	          }
         });
     };
 
