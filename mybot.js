@@ -11,10 +11,10 @@
     ext.set_lcd = function(t) {
         $.ajax({
               type:'POST',
-              url: 'http://webiopi:raspberry@192.168.1.74:8000/macros/lcd_display/' + t,
+              url: 'http://192.168.1.74:8000/macros/lcd_display/' + t,
               data: { },
               headers: {
-	    	    'Authorization': "Basic " + btoa("webiopi:raspberry")
+	    	    'Authorization': 'Basic ' + btoa('webiopi:raspberry')
 	          },
 	          error: function(err) { 
 	    	    alert (err); 
