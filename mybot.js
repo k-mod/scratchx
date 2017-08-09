@@ -8,15 +8,18 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.my_first_block = function() {
-        // Code that gets executed when the block is run
+    ext.set_lcd = function(t) {
+        $.ajax({
+              type:'POST',
+              url: 'http://webiopi:raspberry@192.168.1.74:8000/macros/lcd_display/' + t,
+        });
     };
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             // Block type, block name, function name
-            [' ', 'vivaan - first block', 'my_first_block'],
+            [' ', 'Display %s on LCD', 'set_lcd'],
         ]
     };
 
