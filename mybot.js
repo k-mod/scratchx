@@ -27,14 +27,22 @@
 	ext.empty_post(ext.pi_url + '/macros/lcd_display/' + t);
     };
     
-    ext.move_forward = function(t) {
+    ext.move_forward = function() {
 	ext.empty_post(ext.pi_url + '/macros/go_forward/');
     };
 	
-    ext.move_backward = function(t) {
+    ext.move_backward = function() {
 	ext.empty_post(ext.pi_url + '/macros/go_backward/');
     };
-    ext.stop = function(t) {
+    ext.turn_left = function() {
+	ext.empty_post(ext.pi_url + '/macros/bear_left/');
+    };
+	
+   ext.turn_right = function() {
+	ext.empty_post(ext.pi_url + '/macros/bear_right/');
+    };
+
+    ext.stop = function() {
 	ext.empty_post(ext.pi_url + '/macros/stop/');
     };
 
@@ -46,6 +54,8 @@
 	    [' ', 'Stop', 'stop'],
 		[' ', 'Move Forward', 'move_forward'],
 		[' ', 'Move Backward', 'move_backward'],
+		[' ', 'Turn Left', 'turn_left'],
+		[' ', 'Turn Right', 'turn_right'],
         ]
     };
 
