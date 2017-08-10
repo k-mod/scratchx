@@ -24,10 +24,19 @@
     };
 
     ext.set_lcd = function(t) {
-	    ext.empty_post(ext.pi_url + '/macros/lcd_display/' + t);
+	ext.empty_post(ext.pi_url + '/macros/lcd_display/' + t);
     };
     
-    
+    ext.move_forward = function(t) {
+	ext.empty_post(ext.pi_url + '/macros/go_forward/');
+    };
+	
+    ext.move_backward = function(t) {
+	ext.empty_post(ext.pi_url + '/macros/go_backward/');
+    };
+    ext.stop = function(t) {
+	ext.empty_post(ext.pi_url + '/macros/stop/');
+    };
 
     // Block and block menu descriptions
     var descriptor = {
