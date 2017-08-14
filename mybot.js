@@ -46,6 +46,13 @@
 	ext.empty_post(ext.pi_url + '/macros/stop/');
     };
 
+   ext.part_of_string = function(str, start, end) {
+	return str.substring(start, end);
+    };
+	
+   ext.join_string = function(str1, str2) {
+	   return str1 + str2;
+   }
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
@@ -56,6 +63,8 @@
 		[' ', 'Move Backward', 'move_backward'],
 		[' ', 'Turn Left', 'turn_left'],
 		[' ', 'Turn Right', 'turn_right'],
+		[' ', 'Get Part of %s from %n to %n', 'part_of_string'],
+		[' ', 'Join %s with %s', 'join_string'],
         ]
     };
 
