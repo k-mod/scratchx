@@ -53,6 +53,10 @@
    ext.join_string = function(str1, str2) {
 	   return str1 + str2;
    }
+   
+   ext.speak = function(t) {
+	ext.empty_post(ext.pi_url + '/macros/speak/' + t);
+    };
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
@@ -65,6 +69,7 @@
 		[' ', 'Turn Right', 'turn_right'],
 		[' ', 'Get Part of %s from %n to %n', 'part_of_string'],
 		[' ', 'Join %s with %s', 'join_string'],
+		[' ', 'Speak %s', 'speak'],
         ]
     };
 
