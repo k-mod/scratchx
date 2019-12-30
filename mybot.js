@@ -1,5 +1,5 @@
 (function(ext) {
-    ext.pi_url = 'http://192.168.1.74:8000';
+    ext.pi_url = 'http://192.168.1.30:8000';
     ext.pi_userpass = 'webiopi:raspberry';
     ext.empty_post = function(url) {
 	      $.ajax({
