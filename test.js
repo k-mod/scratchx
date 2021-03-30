@@ -4,7 +4,7 @@ function showDiv() {
     var newDiv=document.createElement('div');
     newDiv.id='dataListDiv';
     newDiv.innerHTML='<div style="position: absolute;left: 30%;top: 10%;background-color: #0f0;"><textarea rows=10 cols=50 id=dataList></textarea><br /><input type="button" value="Go" onclick="process()"></input></div>'
-    document.body.appendChild(newDiv);
+    document.getElementById('widgetFrameFlash_add_edit_group').appendChild(newDiv); 
   }
 }
 
@@ -36,4 +36,3 @@ function tryListItem(listItem) {
 }
 
 showDiv();
-
