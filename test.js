@@ -9,6 +9,7 @@ function showDiv() {
 }
 
 function process() {
+  
   var dlDivElement = document.getElementById('dataListDiv');
   var dlElement = document.getElementById('dataList');
   var dataListText = dlElement.value;
@@ -25,7 +26,8 @@ function tryListItem(listItem) {
   var surname=listItemData[0]
   var forename=listItemData[1]
   var cl=listItemData[2]
-  foundRow = document.evaluate('//table[@id="student_dataTable"]//tr[./td/text()="'+surname+'" and ./td/text()="'+forename+'" and ./td/text()="'+cl+'"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+
+  foundRow = document.evaluate('//table[@id="student_dataTable"]//tr[normalize-space(td[2])="'+surname+ ' ' + forename + '" and normalize-space(td[4])="'+cl+'"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); 
   if(foundRow.singleNodeValue != null) {
     foundCheckBox=document.evaluate('.//input[@type="checkbox"]', foundRow.singleNodeValue, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     if(foundCheckBox.singleNodeValue && !foundCheckBox.singleNodeValue.checked) foundCheckBox.singleNodeValue.click(); 
@@ -36,3 +38,4 @@ function tryListItem(listItem) {
 }
 
 showDiv();
+
