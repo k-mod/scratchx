@@ -23,15 +23,17 @@ function process() {
 
 function tryListItem(listItem) {
   listItemData=listItem.split(/[\t,]/)
-  var surname=listItemData[0]
-  var forename=listItemData[1]
-  var cl=listItemData[2]
-
-  foundRow = document.evaluate('//table[@id="students_dataTable"]//tr[normalize-space(td[2])="'+surname+ ' ' + forename + '" and normalize-space(td[4])="'+cl+'"]', document.getElementById('widgetFrameFlash_iframe_add_edit_group').contentWindow.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); 
+  var forename=listItemData[0].trim()
+  var surname=listItemData[1].trim()
+  var cl=listItemData[2].trim()
+  var frameDocRoot = document.getElementById('widgetFrameFlash_iframe_add_edit_group');
+  var docRoot = (frameDocRoot && frameDocRoot.contentWindow.document) || document;
+  var xPath = '//table[@id="students_dataTable"]//tr[normalize-space(td[2])="'+surname+ ' ' + forename + '" and normalize-space(td[4])="'+cl+'"]';
+  //console.log(xPath);
+  foundRow = document.evaluate(xPath, docRoot, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); 
   if(foundRow.singleNodeValue != null) {
     foundCheckBox=document.evaluate('.//input[@type="checkbox"]', foundRow.singleNodeValue, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     if(foundCheckBox.singleNodeValue && !foundCheckBox.singleNodeValue.checked) foundCheckBox.singleNodeValue.click(); 
-    //alert('found - ' + listItem)
   } else {
     console.log('not found - ' + listItem)
   }
