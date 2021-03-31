@@ -38,4 +38,3 @@ function tryListItem(listItem) {
 }
 
 showDiv();
-
