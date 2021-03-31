@@ -27,7 +27,7 @@ function tryListItem(listItem) {
   var forename=listItemData[1]
   var cl=listItemData[2]
 
-  foundRow = document.evaluate('//table[@id="students_dataTable"]//tr[normalize-space(td[2])="'+surname+ ' ' + forename + '" and normalize-space(td[4])="'+cl+'"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); 
+  foundRow = document.evaluate('//table[@id="students_dataTable"]//tr[normalize-space(td[2])="'+surname+ ' ' + forename + '" and normalize-space(td[4])="'+cl+'"]', document.getElementById('widgetFrameFlash_iframe_add_edit_group').contentWindow.document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); 
   if(foundRow.singleNodeValue != null) {
     foundCheckBox=document.evaluate('.//input[@type="checkbox"]', foundRow.singleNodeValue, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
     if(foundCheckBox.singleNodeValue && !foundCheckBox.singleNodeValue.checked) foundCheckBox.singleNodeValue.click(); 
