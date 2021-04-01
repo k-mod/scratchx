@@ -21,14 +21,14 @@ function process() {
 
 }
 
-function tryListItem(listItem) {
+function tryListItem(listItem) { 
   listItemData=listItem.split(/[\t,]/)
-  var forename=listItemData[0].trim()
-  var surname=listItemData[1].trim()
-  var cl=listItemData[2].trim()
+  var forename=listItemData[0].trim().toLowerCase();
+  var surname=listItemData[1].trim().toLowerCase();
+  var cl=listItemData[2].trim();
   var frameDocRoot = document.getElementById('widgetFrameFlash_iframe_add_edit_group');
   var docRoot = (frameDocRoot && frameDocRoot.contentWindow.document) || document;
-  var xPath = '//table[@id="students_dataTable"]//tr[normalize-space(td[2])="'+surname+ ' ' + forename + '" and normalize-space(td[4])="'+cl+'"]';
+  var xPath = '//table[@id="students_dataTable"]//tr[translate(normalize-space(td[2]),"ABCDEFGHIJKLMNOPQRSTUVWXYZ","abcdefghijklmnopqrstuvwxyz")="'+surname+ ' ' + forename + '" and normalize-space(td[4])="'+cl+'"]';
   //console.log(xPath);
   foundRow = document.evaluate(xPath, docRoot, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null); 
   if(foundRow.singleNodeValue != null) {
@@ -40,4 +40,3 @@ function tryListItem(listItem) {
 }
 
 showDiv();
-
